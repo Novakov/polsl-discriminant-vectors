@@ -1,5 +1,6 @@
 x = {};
 x{1} = [2 5;2 6;3 5;3 6]; %class 1
+%x{1} = [6 7;6 8;7 7;7 8]; %class 2
 x{2} = [6 2;6 3;7 2;7 3]; %class 2
 %x{1} = [-2 2;-5 0;-2 3; -1 4];
 %x{2} = [3 3;5 1;3 -2;1 -5];
@@ -113,18 +114,5 @@ end
 
 d
 gamma
-s
 
-%break;
-figure
-hold on
-axis([-10 10 -10 10])
-%draw classes
-scatter(x{1}(:, 1), x{1}(:, 2))
-scatter(x{2}(:, 1), x{2}(:, 2))                           
-
-for i=1:size(d, 1) %mo¿e size(d, 2)?
-   plot([0 d(i, 1) * 10], [0 d(i, 2)*10]);
-end
-
-hold off
+bar(abs(transpose(d)))
