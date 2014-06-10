@@ -52,10 +52,7 @@ s(1, 1) = s11;
 
 gamma = zeros(K, 1);
 
-%loop
-while(1==1)    
-    n = n + 1;
-
+for n=2:K        
     %compute d_n           
     
     z = eye(n - 1); 
@@ -71,11 +68,7 @@ while(1==1)
     
     %compute gamma_n                          
     gamma(n) = ((d(n, 1:featureCount) * delta)^2) ...
-    /(d(n, 1:featureCount) * double(A) * transpose(d(n, 1:featureCount)));
-    
-    if n == K + 1
-        break 
-    end
+    /(d(n, 1:featureCount) * double(A) * transpose(d(n, 1:featureCount)));      
 
     %compute S_n
     for i=1:n
